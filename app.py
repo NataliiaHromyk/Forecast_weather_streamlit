@@ -1,10 +1,10 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import joblib
+import joblib import load
 
 # Load model
-aussie_rain2 = joblib.load("models/aussie_rain.joblib")
+aussie_rain2 = load("models/aussie_rain.joblib")
 model = aussie_rain2["model"]
 imputer = aussie_rain2["imputer"]
 scaler = aussie_rain2["scaler"]
