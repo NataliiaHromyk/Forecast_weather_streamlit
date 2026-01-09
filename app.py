@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-import joblib import load
+from joblib import load
+
 
 # Load model
 aussie_rain2 = load("models/aussie_rain.joblib")
