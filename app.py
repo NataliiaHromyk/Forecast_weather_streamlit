@@ -3,6 +3,35 @@ import pandas as pd
 from joblib import load
 
 
+import os
+
+st.write("✅ App started")
+st.write("Python:", os.sys.version)
+st.write("Working dir files:", os.listdir("."))
+st.write("Models folder:", os.listdir("models") if os.path.exists("models") else "NO models/")
+st.write("Assets folder:", os.listdir("assets") if os.path.exists("assets") else "NO assets/")
+
+from joblib import load
+
+try:
+    st.write("Loading model…")
+    aussie_rain2 = load("models/aussie_rain.joblib")
+    st.write("✅ Model loaded")
+except Exception as e:
+    st.error(f"Model load failed: {e}")
+    st.stop()
+
+import json
+try:
+    st.write("Loading meta…")
+    with open("assets/meta.json", "r", encoding="utf-8") as f:
+        meta = json.load(f)
+    st.write("✅ Meta loaded")
+except Exception as e:
+    st.error(f"Meta load failed: {e}")
+    st.stop()
+
+
 # Load model
 aussie_rain2 = load("models/aussie_rain.joblib")
 model = aussie_rain2["model"]
